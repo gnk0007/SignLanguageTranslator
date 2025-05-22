@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Show Sentence</title>
+</head>
+<body>
+    <div class="container" style="
+            height: 100%;
+            width: 100%;
+            background-color: #ffffff2f;
+            text-align: center;
+            padding-top: 25%;">
+        <h1>Show Sentence</h1>
+        <p>{{ sentence }}</p>
+        <a href="{{ url_for('home') }}"><button>Back to Home</button></a>
+    </div>
+</body>
+</html>

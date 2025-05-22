@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sign Language Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://storage.googleapis.com/gweb-uniblog-publish-prod/images/yoodle_signtube_statement_banner3x.max-1500x1500.png');
+            background-size: cover;
+            color: #333;
+        }
+
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(51, 51, 51, 0.8);
+            color: #61dafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            text-align: center;
+            opacity: 1;
+            animation: fadeInOut 5s forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 1; transform: scale(0.8); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        .container {
+            display: animation;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            width: 70%;
+            height: 70%;
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 2em;
+            color: #333;
+        }
+
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px 20%;
+        }
+
+        th, td {
+            /* border: 1px solid #ddd; */
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f434;
+        }
+
+        button {
+            background-color: #61dafb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+        #anim{
+            color: #ffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen" style="display: {{ 'block' if show_animation else 'none' }};">
+        <h1 id="anim">Sign Language Translator</h1>
+    </div>
+    <div class="container" id="main-content" style="display: {{ 'none' if show_animation else 'block' }};">
+        <img src="https://th.bing.com/th/id/OIP.ApjI8fg3oubHcDY5pP0TdwAAAA?w=151&h=158&c=7&r=0&o=5&pid=1.7" alt="DSATM">
+        <h1>Department of Computer Science and Engineering</h1>
+        <h1>DAYANANDA SAGAR ACADEMY OF TECHNOLOGY AND MANAGEMENT</h1>
+        <h1>Mini Project : 21CSMP67</h1>
+        <h1>Title : SIGN LANGUAGE TRANSLATOR</h1>
+        <table id="data">
+            <thead>
+                <tr>
+                    <th>SL.NO</th>
+                    <th>NAME</th>
+                    <th>USN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>1</b></td>
+                    <td><b>C Dharshan</b></td>
+                    <td><b>1DT21CS027</b></td>
+                </tr>
+                <tr>
+                    <td><b>2</b></td>
+                    <td><b>Chethan S</b></td>
+                    <td><b>1DT21CS035</b></td>
+                </tr>
+                <tr>
+                    <td><b>3</b></td>
+                    <td><b>G N Koushik</b></td>
+                    <td><b>1DT21CS042</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <h1>Sign Language Translator</h1> -->
+        <a href="{{ url_for('create_gesture') }}"><button>Create Gesture</button></a>
+        <a href="{{ url_for('scan_gesture') }}"><button>Scan Gesture</button></a>
+        <a href="{{ url_for('show_sentence') }}"><button>Show Sentence</button></a>
+        <a href="{{ url_for('convert_to_audio') }}"><button>Convert to Audio</button></a>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+    <footer>
+        <p>&copy; 2024. Project designed and developed by C Dharshan, Chethan S, G N Koushik</p>
+        <p>Contact us</p>
+        <p>Phone: 8105533249</p>
+        <p>Email: schethan8105@gmail.com</p>
+    </footer>
+    <script>
+        if (document.getElementById('splash-screen').style.display === 'block') {
+            setTimeout(function() {
+                document.getElementById('splash-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

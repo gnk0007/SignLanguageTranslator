@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f0f0f0;
+    background-image: url('https://storage.googleapis.com/gweb-uniblog-publish-prod/images/yoodle_signtube_statement_banner3x.max-1500x1500.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+
+
+#splash-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 44, 52, 0.9); /* Add transparency */
+    color: #61dafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    text-align: center;
+    animation: fadeInOut 1s both;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+    } 
+  
+}
+
+
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Add transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background: #61dafb;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background: #21a1f1;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    background: rgba(40, 44, 52, 0.9); /* Add transparency */
+    color: #61dafb;
+    padding: 10px 0;
+}
